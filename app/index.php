@@ -15,7 +15,7 @@
     <body>
         <div id="page-content" class="content">
             <?php include("../header.php"); ?>
-            <div class="main align-center">
+            <div class="main-grid align-center">
 
                 <div style="grid-area: side; box-sizing: border-box; width: 100%; height: 100%; margin: 0; padding: 10px;">
                     <div id="debts" class="content-card align-center">
