@@ -13,7 +13,7 @@
     <body>
         <div id="page-content" class="content">
             <?php include("header.php"); ?>
-            <div class="main">
+            <div class="main align-center">
                 <h1>Welcome to CostCat, <?php echo $_SESSION["user"]["username"] ?></h1>
             </div>
             <?php include("footer.php"); ?>
