@@ -20,7 +20,7 @@
                 width: 100%;
             }
 
-            #groups *:hover {
+            #groups div:hover {
                 transition: 500ms;
                 background: linear-gradient(45deg, #e600ff 0%, #00ccff 100%);
             }
