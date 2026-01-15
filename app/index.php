@@ -18,9 +18,10 @@
             <div class="main-grid align-center">
 
                 <div style="grid-area: side; box-sizing: border-box; width: 100%; height: 100%; margin: 0; padding: 10px;">
-                    <div id="debts" class="content-card align-center">
-                        <h1>Individual debts</h1>
-                    </div>
+                    <h1>Individual debts</h1>
+                    <table id="debts" class="content-card">
+                        <tr><th>User</th><th>Balance</th></tr>
+                    </table>
                 </div>
 
                 <div style="grid-area: overall; box-sizing: border-box; width: 100%; height: 100%; margin: 0; padding: 10px;">
@@ -31,9 +32,10 @@
                 </div>
 
                 <div style="grid-area: transactions; box-sizing: border-box; width: 100%; height: 100%; margin: 0; padding: 10px;">
-                    <div id="transactions" class="column align-center">
-                        <h1>Transactions</h1>
-                    </div>
+                    <h1>Transactions</h1>    
+                    <table id="transactions">
+                        <tr><th>Payer</th><th>Amount</th><th># of payees</th><th>Time</th></tr>
+                    </table>
                 </div>
 
                 <!-- Initialise the page -->
@@ -42,7 +44,11 @@
                     const group = get_params.get("group");
 
                     function debt_as_html(debt, debtor) {
-                        return "<div class='row justify-center'><p id='user-" + debtor + "'>User " + debtor + "</p><span class='half-spacer'></span><p>£" + debt + "</p></div>";
+                        return "<tr><td><p id='user-" + debtor + "'>User " + debtor + "</p></td><td><p>£" + debt + "</p></td></tr>";
+                    }
+
+                    function transaction_as_html(t) {
+                        return "<tr><td><p id='transaction-user-" + t.payer"'></p></td><td><p>" + t.amount + "</p></td><td><p>" + t.payeeCount + "</p></td><td><p>" + t.timestamp + "</p></td></tr>";
                     }
 
                     get_balance(group, (b) => {
@@ -57,10 +63,6 @@
                             }, (m) => console.log(m));
                         });
                     }, (m) => console.log(m));
-
-                    function transaction_as_html(t) {
-                        return "<div class='transaction content-card'><p id='transaction-user-" + t.payer + "'></p><span class='quarter-spacer'></span><p>paid £" + t.amount + " to " + t.payeeCount + " people</p></div>"; 
-                    }
 
                     const transactions = get_transactions(group, (T) => {
                         T.forEach((t) => {
