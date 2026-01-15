@@ -3,7 +3,7 @@
 <div class="navbar column align-center justify-center">
     <div style="width: 100%" class="row align-center justify-center">
         <div class="column align-center justify-center">
-            <h1 id="navbar-title"></h1>
+            <h1 id="navbar-title">CostCat</h1>
             <a href="https://apps.nathcat.net">Part of the Nathcat Network</a>
         </div>
 

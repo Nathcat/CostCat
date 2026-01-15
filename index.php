@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title></title>
+        <title>CostCat</title>
 
         <link rel="stylesheet" href="https://nathcat.net/static/css/new-common.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,7 +13,9 @@
     <body>
         <div id="page-content" class="content">
             <?php include("header.php"); ?>
-
+            <div class="main">
+                <h1>Welcome to CostCat, <?php echo $_SESSION["user"]["username"] ?></h1>
+            </div>
             <?php include("footer.php"); ?>
         </div>
     </body>
