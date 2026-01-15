@@ -47,8 +47,8 @@
 
                     get_balance(group, (b) => {
                         $("#total-balance").text("£" + b.overall);
-                        Object.keys(b.individual).forEach((debt, debtor) => {
-                            $("#debts").append(debt_as_html(debt, debtor));
+                        Object.keys(b.individual).forEach((debtor) => {
+                            $("#debts").append(debt_as_html(b.individual[debtor], debtor));
                         });
                     }, (m) => console.log(m));
 

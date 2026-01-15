@@ -54,6 +54,14 @@ if ($is_member) {
         }
 
         $stmt->close();
+
+        $stmt = $conn->prepare("SELECT `owner` FROM DataCat.Groups WHERE `id` = ?");
+        $stmt->bind_param("i", $_GET["group"]);
+        $stmt->execute();
+        $o = $stmt->get_result()->fetch_assoc()["owner"];
+        if ($o != $_SESSION["user"]["id"]) $debts[$o] = 0;
+
+        $stmt->close();
     }
     catch (Exception $e) {
         die(json_encode([
