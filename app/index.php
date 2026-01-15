@@ -59,7 +59,7 @@
                     }, (m) => console.log(m));
 
                     function transaction_as_html(t) {
-                        return "<div style='width: 100%;' class='content-card row justify-center'><p id='transaction-user-" + t.payer + "'></p><span class='quarter-spacer'></span><p>paid £" + t.amount + " to " + t.payeeCount + " people</p></div>"; 
+                        return "<div class='transaction content-card'><p id='transaction-user-" + t.payer + "'></p><span class='quarter-spacer'></span><p>paid £" + t.amount + " to " + t.payeeCount + " people</p></div>"; 
                     }
 
                     const transactions = get_transactions(group, (T) => {
