@@ -52,6 +52,8 @@ if ($is_member) {
 
             $debts[$row["user"]] = 0;
         }
+
+        $stmt->close();
     }
     catch (Exception $e) {
         die(json_encode([
@@ -76,7 +78,7 @@ if ($is_member) {
 
         // ... and then totalling their repayments.
         foreach (array_keys($debts) as $debtor) {
-            $stmt = $conn->prepare("SELECT Transactions.* FROM Payees JOIN Transactions ON Payees.transaction = Transaction.id WHERE Payees.user = ? AND Transactions.payer = ?");
+            $stmt = $conn->prepare("SELECT Transactions.* FROM Payees JOIN Transactions ON Payees.transaction = Transactions.id WHERE Payees.user = ? AND Transactions.payer = ?");
             $stmt->bind_param("ii", $debtor, $_SESSION["user"]["id"]);
             $stmt->execute();
             $set = $stmt->get_result();
