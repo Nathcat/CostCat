@@ -45,7 +45,7 @@ if ($is_member) {
     // Determine the user's balance.
     try {
         // Start by totalling their debts
-        $stmt = $conn->prepare("SELECT Transactions.* FROM Payees JOIN Transactions ON Payee.transaction = Transactions.id WHERE Payee.user = ? AND Transactions.group = ?");
+        $stmt = $conn->prepare("SELECT Transactions.* FROM Payees JOIN Transactions ON Payees.transaction = Transactions.id WHERE Payees.user = ? AND Transactions.group = ?");
         $stmt->bind_param("ii", $_SESSION["user"]["id"], $_GET["group"]);
         $stmt->execute();
         $set = $stmt->get_result();
@@ -58,7 +58,7 @@ if ($is_member) {
 
         // ... and then totalling their repayments.
         foreach (array_keys($debts) as $debtor) {
-            $stmt = $conn->prepare("SELECT Transactions.* FROM Payees JOIN Transactions ON Payee.transaction = Transaction.id WHERE Payee.user = ? AND Transactions.payer = ?");
+            $stmt = $conn->prepare("SELECT Transactions.* FROM Payees JOIN Transactions ON Payees.transaction = Transaction.id WHERE Payees.user = ? AND Transactions.payer = ?");
             $stmt->bind_param("ii", $debtor, $_SESSION["user"]["id"]);
             $stmt->execute();
             $set = $stmt->get_result();
