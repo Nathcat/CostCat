@@ -3,6 +3,7 @@ include("util.php");
 
 header("Access-Control-Allow-Origin: cost.nathcat.net");
 header("Access-Control-Allow-Methods: GET");
+header("Access-Control-Allow-Credentials: true");
 header("Content-Type: application/json");
 header("Accept: application/json");
 

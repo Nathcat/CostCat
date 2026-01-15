@@ -13,9 +13,17 @@
 
 .main {
     display: grid;
-    grid-template-rows: 1fr, 1fr;
-    grid-template-columns: 1fr, 2fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 2fr;
     grid-template-areas: 
-        side overall,
-        side transactions;
+        "side overall",
+        "side transactions";
+}
+
+#debts {
+    grid-area: side;
+}
+
+#transactions {
+    grid-area: transactions;
 }

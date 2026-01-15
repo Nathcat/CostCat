@@ -17,7 +17,7 @@
             <?php include("../header.php"); ?>
             <div class="main align-center">
 
-                <div style="grid-areas: side" id="debts" class="content-card align-center">
+                <div id="debts" class="content-card align-center">
                     <h1>Individual debts</h1>
                 </div>
 
@@ -26,7 +26,7 @@
                     <h2 id="total-balance" style="color: var(--quad-color);">£--.--</h2>
                 </div>
 
-                <div style="grid-areas: transactions" id="transactions" class="column align-center">
+                <div id="transactions" class="column align-center">
                     <h1>Transactions</h1>
                 </div>
 
