@@ -42,7 +42,7 @@
                     const group = get_params.get("group");
 
                     function debt_as_html(debt, debtor) {
-                        return "<div row justify-center><p id='user-" + debtor + ">User " + debtor + "</p><span class='half-spacer'></span><p>£" + debt + "</p></div>";
+                        return "<div class='row justify-center'><p id='user-" + debtor + ">User " + debtor + "</p><span class='half-spacer'></span><p>£" + debt + "</p></div>";
                     }
 
                     get_balance(group, (b) => {
