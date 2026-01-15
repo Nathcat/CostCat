@@ -42,6 +42,7 @@ catch (Exception $e) {
 if ($is_member) {
     $debts = [];
 
+    // Add all the users in the group to the debts list, except the current user
     try {
         $stmt = $conn->prepare("SELECT `user` FROM DataCat.Group_Members WHERE `group` = ?");
         $stmt->bind_param("i", $_GET["group"]);

@@ -42,13 +42,18 @@
                     const group = get_params.get("group");
 
                     function debt_as_html(debt, debtor) {
-                        return "<div row justify-center><p>User " + debtor + "</p><span class='spacer'></span><p>£" + debt + "</p></div>";
+                        return "<div row justify-center><p id='user-" + debtor + ">User " + debtor + "</p><span class='half-spacer'></span><p>£" + debt + "</p></div>";
                     }
 
                     get_balance(group, (b) => {
                         $("#total-balance").text("£" + b.overall);
                         Object.keys(b.individual).forEach((debtor) => {
                             $("#debts").append(debt_as_html(b.individual[debtor], debtor));
+
+                            // Request the user data
+                            get_user(debtor, (u) => {
+                                $("#user-" + u.id).text(u.username);
+                            }, (m) => console.log(m));
                         });
                     }, (m) => console.log(m));
 
