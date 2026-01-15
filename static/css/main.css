@@ -14,9 +14,10 @@
 }
 
 th, td {
+    box-sizing: border-box;
     border-bottom: 1px solid var(--tertiary-color);
-    padding: 0;
-    margin: 5px;
+    padding: 5;
+    margin: 0;
 }
 
 tr:nth-child(even) {
