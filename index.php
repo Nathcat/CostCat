@@ -10,6 +10,21 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
         <script src="/static/js/api.js"></script>
         <link rel="stylesheet" href="/static/css/main.css">
+
+        <style>
+            #groups {
+                width: 50%;
+            }
+
+            #groups * {
+                width: 100%;
+            }
+
+            #groups *:hover {
+                transition: 500ms;
+                background: linear-gradient(45deg, #e600ff 0%, #00ccff 100%);
+            }
+        </style>
     </head>
 
     <body>
