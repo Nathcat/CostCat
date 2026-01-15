@@ -48,7 +48,7 @@
                     }
 
                     function transaction_as_html(t) {
-                        return "<tr><td><p id='transaction-user-" + t.payer"'></p></td><td><p>" + t.amount + "</p></td><td><p>" + t.payeeCount + "</p></td><td><p>" + t.timestamp + "</p></td></tr>";
+                        return "<tr><td><p id='transaction-user-" + t.payer + "'></p></td><td><p>" + t.amount + "</p></td><td><p>" + t.payeeCount + "</p></td><td><p>" + t.timestamp + "</p></td></tr>";
                     }
 
                     get_balance(group, (b) => {
