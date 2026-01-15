@@ -30,7 +30,7 @@ if ($conn->connect_error) {
 }
 
 try {
-    $is_member = is_member_of_group($conn, $conn, $_SESSION["user"]["id"]);
+    $is_member = is_member_of_group($conn, $_GET["group"], $_SESSION["user"]["id"]);
 }
 catch (Exception $e) {
     die(json_encode([
