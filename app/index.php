@@ -33,7 +33,7 @@
 
                 <div class="column" style="grid-area: transactions; box-sizing: border-box; width: 100%; height: 100%; margin: 0; padding: 10px;">
                     <h1>Transactions</h1>    
-                    <table id="transactions">
+                    <table id="transactions" class="content-card">
                         <tr><th><h3>Payer</h3></th><th><h3>Amount</h3></th><th><h3># of payees</h3></th><th><h3>Time</h3></th></tr>
                     </table>
                 </div>
