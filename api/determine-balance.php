@@ -66,8 +66,9 @@ if ($is_member) {
             while ($row = $set->fetch_assoc()) {
                 $debts[$debtor] += $row["amount"] / $row["payeeCount"];
             }
+
+            $stmt->close();
         }
-        $stmt->close();
     }
     catch (Exception $e) {
         die(json_encode([
