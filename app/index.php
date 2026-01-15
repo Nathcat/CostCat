@@ -16,24 +16,10 @@
         <div id="page-content" class="content">
             <?php include("header.php"); ?>
             <div class="main align-center">
-                <h1>Welcome to CostCat, <?php echo $_SESSION["user"]["username"] ?></h1>
-
-                <h2>Your groups</h2>
-                <div id="groups" class="column align-center"></div>
-
-                <!-- Populate the user's group list -->
                 <script>
-                    function group_as_html(g) {
-                        return "<div onclick='window.location = /app?group=" + g.id + ";' class='content-card row align-center justify-center'><h3 style='width: fit-content'>" + g.name + "</h3></div>";
-                    }
-
-                    get_groups((G) => {
-                        G.forEach((g) => {
-                            $("#groups").append(group_as_html(g));
-                        });
-                    }, (m) => console.log(m));
+                    const get_params = new URLSearchParams(window.location.search);
+                    const group = get_params.get("group");
                 </script>
-                <!--------------------------------------->
             </div>
             <?php include("footer.php"); ?>
         </div>
