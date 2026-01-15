@@ -52,6 +52,7 @@
 
                             // Request the user data
                             get_user(debtor, (u) => {
+                                console.log(u);
                                 $("#user-" + u.id).text(u.username);
                             }, (m) => console.log(m));
                         });
