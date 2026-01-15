@@ -52,6 +52,7 @@ function get_user(id, success, fail) {
     else { 
         fetch("https://data.nathcat.net/sso/user-search.php", {
             method: "POST",
+            headers: {"Content-Type": "application/json"},
             body: JSON.stringify({
                 "id": id
             })
