@@ -1,4 +1,4 @@
-<?php include("../session-start.php");
+<?php include("../start-session.php");
 include("util.php");
 
 header("Access-Control-Allow-Origin: cost.nathcat.net");
