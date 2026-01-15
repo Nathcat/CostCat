@@ -35,7 +35,7 @@ try {
 catch (Exception $e) {
     die(json_encode([
         "status" => "fail",
-        "message" => "Failed to determine group membership status: "+ $e->getMessage()
+        "message" => "Failed to determine group membership status: " . $e->getMessage()
     ]));
 }
 
