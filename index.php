@@ -24,7 +24,7 @@
                 <!-- Populate the user's group list -->
                 <script>
                     function group_as_html(g) {
-                        return "<div class='content-card row align-center justify-center'><h3>" + g.title + "</h3></div>";
+                        return "<div class='content-card row align-center justify-center'><h3>" + g.name + "</h3></div>";
                     }
 
                     get_groups((G) => {
