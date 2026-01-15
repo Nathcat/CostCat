@@ -42,6 +42,22 @@ catch (Exception $e) {
 if ($is_member) {
     $debts = [];
 
+    try {
+        $stmt = $conn->prepare("SELECT `user` FROM DataCat.Group_Members WHERE `group` = ?");
+        $stmt->bind_param("i", $_GET["group"]);
+        $stmt->execute();
+        $set = $stmt->get_result();
+        while ($row = $set->fetch_assoc()) {
+            $debts[$row["user"]] = 0;
+        }
+    }
+    catch (Exception $e) {
+        die(json_encode([
+            "status" => "fail",
+            "message" => "Failed to get members of the group"
+        ]));
+    }
+
     // Determine the user's balance.
     try {
         // Start by totalling their debts
