@@ -29,7 +29,7 @@
 
                     get_groups((G) => {
                         G.forEach((g) => {
-                            $("#groups").append(group_as_html)
+                            $("#groups").append(group_as_html(g));
                         });
                     }, (m) => console.log(m));
                 </script>
