@@ -10,3 +10,12 @@
     transition: 500ms;
     background: linear-gradient(45deg, #e600ff 0%, #00ccff 100%);
 }
+
+.main {
+    display: grid;
+    grid-template-rows: 1fr, 1fr;
+    grid-template-columns: 1fr, 2fr;
+    grid-template-areas: 
+        side overall,
+        side transactions;
+}

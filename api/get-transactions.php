@@ -40,39 +40,23 @@ catch (Exception $e) {
 }
 
 if ($is_member) {
-    $debts = [];
-
-    // Determine the user's balance.
     try {
-        // Start by totalling their debts
-        $stmt = $conn->prepare("SELECT Transactions.* FROM Payees JOIN Transactions ON Payee.transaction = Transactions.id WHERE Payee.user = ? AND Transactions.group = ?");
-        $stmt->bind_param("ii", $_SESSION["user"]["id"], $_GET["group"]);
+        $stmt = $conn->prepare("SELECT * FROM Transactions WHERE `group` = ?");
+        $stmt->bind_param("i", $_GET["group"]);
         $stmt->execute();
         $set = $stmt->get_result();
 
+        $t = [];
         while ($row = $set->fetch_assoc()) {
-            $debts[$row["payer"]] -= $row["amount"] / $row["payeeCount"];
+            array_push($t, $row);
         }
 
-        $stmt->close();
-
-        // ... and then totalling their repayments.
-        foreach (array_keys($debts) as $debtor) {
-            $stmt = $conn->prepare("SELECT Transactions.* FROM Payees JOIN Transactions ON Payee.transaction = Transaction.id WHERE Payee.user = ? AND Transactions.payer = ?");
-            $stmt->bind_param("ii", $debtor, $_SESSION["user"]["id"]);
-            $stmt->execute();
-            $set = $stmt->get_result();
-
-            while ($row = $set->fetch_assoc()) {
-                $debts[$debtor] += $row["amount"] / $row["payeeCount"];
-            }
-        }
         $stmt->close();
     }
     catch (Exception $e) {
         die(json_encode([
-            "status"=> "fail",
-            "message" => "Failed to calculate balances: " . $e->getMessage()
+            "status" => "fail",
+            "message" => "Couldn't get transactions: " . $e->getMessage()
         ]));
     }
 }
@@ -91,9 +75,6 @@ foreach ($debts as $debt) {
 
 echo json_encode([
     "status" => "success",
-    "overall" => round($balance, 2),
-    "individual" => array_map(function ($v) {
-        return round($v, 2);
-    }, $debts)
+    "transactions" => $t
 ]);
 ?>

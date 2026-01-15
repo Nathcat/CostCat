@@ -35,3 +35,13 @@ function get_groups(success, fail) {
         else fail(r.message);
     });
 }
+
+function get_transactions(group, success, fail) {
+    fetch("/api/get-transactions.php?group=" + group, {
+        method: "GET",
+        credentials: "include"
+    }).then((r) => r.json()).then((r) => {
+        if (r.status === "success") success(r.transactions);
+        else fail(r.message);
+    });
+}
