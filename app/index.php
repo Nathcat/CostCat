@@ -59,7 +59,7 @@
                     }, (m) => console.log(m));
 
                     function transaction_as_html(t) {
-                        return "<div class='row justify-center><p id='transaction-user-" + t.payer + "'></p><p>paid " + t.amount + " to " + t.payeeCount + " people</p></div>"; 
+                        return "<div class='row justify-center'><p id='transaction-user-" + t.payer + "'></p><p>paid " + t.amount + " to " + t.payeeCount + " people</p></div>"; 
                     }
 
                     const transactions = get_transactions(group, (T) => {
