@@ -17,10 +17,10 @@
             <?php include("../header.php"); ?>
             <div class="main-grid align-center">
 
-                <div style="grid-area: side; box-sizing: border-box; width: 100%; height: 100%; margin: 0; padding: 10px;">
+                <div class="column" style="grid-area: side; box-sizing: border-box; width: 100%; height: 100%; margin: 0; padding: 10px;">
                     <h1>Individual debts</h1>
                     <table id="debts" class="content-card">
-                        <tr><th>User</th><th>Balance</th></tr>
+                        <tr><th><h3>User</h3></th><th><h3>Balance</h3></th></tr>
                     </table>
                 </div>
 
@@ -31,10 +31,10 @@
                     </div>
                 </div>
 
-                <div style="grid-area: transactions; box-sizing: border-box; width: 100%; height: 100%; margin: 0; padding: 10px;">
+                <div class="column" style="grid-area: transactions; box-sizing: border-box; width: 100%; height: 100%; margin: 0; padding: 10px;">
                     <h1>Transactions</h1>    
                     <table id="transactions">
-                        <tr><th>Payer</th><th>Amount</th><th># of payees</th><th>Time</th></tr>
+                        <tr><th><h3>Payer</h3></th><th><h3>Amount</h3></th><th><h3># of payees</h3></th><th><h3>Time</h3></th></tr>
                     </table>
                 </div>
 
