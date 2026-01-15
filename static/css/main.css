@@ -20,10 +20,8 @@
         "side transactions";
 }
 
-#debts {
-    grid-area: side;
-}
-
-#transactions {
-    grid-area: transactions;
+#transaction, #debts, #overall {
+    margin: 0;
+    width: 100%;
+    height: 100%;
 }

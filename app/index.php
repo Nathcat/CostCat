@@ -17,17 +17,23 @@
             <?php include("../header.php"); ?>
             <div class="main align-center">
 
-                <div id="debts" class="content-card align-center">
-                    <h1>Individual debts</h1>
+                <div style="grid-area: side; box-sizing: border-box; width: 100%; height: 100%; margin: 0; padding: 10px;">
+                    <div id="debts" class="content-card align-center">
+                        <h1>Individual debts</h1>
+                    </div>
                 </div>
 
-                <div style="grid-areas: overall" class="content-card">
-                    <h1>Your total balance</h1>
-                    <h2 id="total-balance" style="color: var(--quad-color);">£--.--</h2>
+                <div style="grid-area: overall; box-sizing: border-box; width: 100%; height: 100%; margin: 0; padding: 10px;">
+                    <div id="overall" class="content-card">
+                        <h1>Your total balance</h1>
+                        <h2 id="total-balance" style="color: var(--quad-color);">£--.--</h2>
+                    </div>
                 </div>
 
-                <div id="transactions" class="column align-center">
-                    <h1>Transactions</h1>
+                <div style="grid-area: transactions; box-sizing: border-box; width: 100%; height: 100%; margin: 0; padding: 10px;">
+                    <div id="transactions" class="column align-center">
+                        <h1>Transactions</h1>
+                    </div>
                 </div>
 
                 <!-- Initialise the page -->
