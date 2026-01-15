@@ -59,7 +59,7 @@
                     }, (m) => console.log(m));
 
                     function transaction_as_html(t) {
-                        return "<div class='row justify-center><p id='user-" + t.payer + "'></p><p>paid " + t.amount + " to " + t.payeeCount + " people</p></div>"; 
+                        return "<div class='row justify-center><p id='transaction-user-" + t.payer + "'></p><p>paid " + t.amount + " to " + t.payeeCount + " people</p></div>"; 
                     }
 
                     const transactions = get_transactions(group, (T) => {
@@ -67,7 +67,7 @@
                             $("#transactions").append(transaction_as_html(t));
                             get_user(t.payer, (u) => {
                                 console.log(u);
-                                $("#user-" + u.id).text(u.username);
+                                $("#transaction-user-" + u.id).text(u.username);
                             }, (m) => console.log(m));
                         });
 
