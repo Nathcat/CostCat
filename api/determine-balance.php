@@ -48,6 +48,8 @@ if ($is_member) {
         $stmt->execute();
         $set = $stmt->get_result();
         while ($row = $set->fetch_assoc()) {
+            if ($row["user"] == $_SESSION["user"]["id"]) continue;
+
             $debts[$row["user"]] = 0;
         }
     }
