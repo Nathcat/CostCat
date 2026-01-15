@@ -24,7 +24,7 @@
                 <!-- Populate the user's group list -->
                 <script>
                     function group_as_html(g) {
-                        return "<div onclick='window.location = /app?group=" + g.id + ";' class='content-card row align-center justify-center'><h3 style='width: fit-content'>" + g.name + "</h3></div>";
+                        return "<div onclick='window.location = \"/app?group=" + g.id + "\";' class='content-card row align-center justify-center'><h3 style='width: fit-content'>" + g.name + "</h3></div>";
                     }
 
                     get_groups((G) => {
