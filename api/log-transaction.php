@@ -56,6 +56,7 @@ if ($is_member) {
     $stmt->close();
     $transaction_id = $conn->insert_id;
 
+    print_r($request);
     foreach($request["payees"] as $payee) {
         $stmt = $conn->prepare("INSERT INTO Payees (`transaction`, `user`) VALUES (?, ?)");
         $stmt->bind_param("ii", $transaction_id, $payee);
