@@ -19,6 +19,10 @@
 
                 <div class="column" style="grid-area: side; box-sizing: border-box; width: 100%; height: 100%; margin: 0; padding: 10px;">
                     <h1>Individual debts</h1>
+                    <p>
+                        Here you can see how much you owe each member of the group, a negative value indicates that you owe the user, a positive
+                        value indicates that they owe you.
+                    </p>
                     <table id="debts" class="content-card">
                         <tr><th><h3>User</h3></th><th><h3>Balance</h3></th></tr>
                     </table>
@@ -27,6 +31,9 @@
                 <div style="grid-area: overall; box-sizing: border-box; width: 100%; height: 100%; margin: 0; padding: 10px;">
                     <div id="overall" class="content-card">
                         <h1>Your total balance</h1>
+                        <p>
+                            This is your total balance over the entire group, negative values indicate debt, positive indicate credit.
+                        </p>
                         <h2 id="total-balance" style="color: var(--quad-color);">£--.--</h2>
                     </div>
                 </div>
@@ -44,11 +51,11 @@
                     const group = get_params.get("group");
 
                     function debt_as_html(debt, debtor) {
-                        return "<tr><td><p id='user-" + debtor + "'>User " + debtor + "</p></td><td><p>£" + debt + "</p></td></tr>";
+                        return "<tr><td><div class='small-profile-picture'><img id='user-pfp-" + debtor + "' src='https://cdn.nathcat.net/pfps/default.png'></div><p id='user-" + debtor + "'>User " + debtor + "</p></td><td><p>£" + debt + "</p></td></tr>";
                     }
 
                     function transaction_as_html(t) {
-                        return "<tr><td><p id='transaction-user-" + t.payer + "'></p></td><td><p>" + t.amount + "</p></td><td><p>" + t.payeeCount + "</p></td><td><p>" + t.timestamp + "</p></td></tr>";
+                        return "<tr><td><div class='small-profile-picture'><img id='transaction-user-pfp-" + t.payer + "' src='https://cdn.nathcat.net/pfps/default.png'></div><p id='transaction-user-" + t.payer + "'></p></td><td><p>" + t.amount + "</p></td><td><p>" + t.payeeCount + "</p></td><td><p>" + t.timestamp + "</p></td></tr>";
                     }
 
                     get_balance(group, (b) => {
@@ -60,6 +67,7 @@
                             get_user(debtor, (u) => {
                                 console.log(u);
                                 $("#user-" + u.id).text(u.username);
+                                $("#user-pfp-" + u.id).attr("src", "https://cdn.nathcat.net/pfps/" + u.pfpPath);
                             }, (m) => console.log(m));
                         });
                     }, (m) => console.log(m));
@@ -70,6 +78,7 @@
                             get_user(t.payer, (u) => {
                                 console.log(u);
                                 $("#transaction-user-" + u.id).text(u.username);
+                                $("#transaction-user-pfp-" + u.id).attr("src", "https://cdn.nathcat.net/pfps/" + u.pfpPath);
                             }, (m) => console.log(m));
                         });
 
