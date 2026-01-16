@@ -36,6 +36,8 @@
                     </table>
                 </div>
 
+                <button onclick="do_log()">Log transaction</button>
+
                 <!-- Populating page -->
                 <script>
                     const get_params = new URLSearchParams(window.location.search);
@@ -55,6 +57,19 @@
                             $("#users").append(user_as_html(u));
                         });
                     }, (m) => console.log(m));
+
+
+                    function do_log() {
+                        let payees = [];
+                        $("input:radio:checked").each(function (index) {
+                            payees.push(parseInt($(this).attr("id")));
+                        });
+
+                        log_transaction(group, parseInt($("#amount").val()), payees, () => {
+                            alert("Transaction was logged.");
+                            window.location = "/app/?group=" + group;
+                        }, alert);
+                    }
                 </script>
                 <!----------------------->
             </div>
