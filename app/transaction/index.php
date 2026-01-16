@@ -31,7 +31,7 @@
                         Select all the users who are to be debted by this transaction. i.e. who are you paying to.
                     </p>
 
-                    <table id="users">
+                    <table id="users" style="width: 100%; box-sizing: border-box">
 
                     </table>
                 </div>
@@ -47,14 +47,12 @@
                     }
                     
                     function user_as_html(u) {
-                        return "<tr><td><div style='max-width: 50px; max-height: 50px;' class='small-profile-picture'><img style='max-width: 50px; max-height: 50px;' src='https://cdn.nathcat.net/pfps/" + u.pfpPath + "'></div><h4 style='padding-left: 5px;'>" + u.username + "</h4></td><td><input type='radio' value='" + u.id + "' ></td></tr>";
+                        return "<tr><td class='row align-center'><div style='max-width: 50px; max-height: 50px;' class='small-profile-picture'><img style='max-width: 50px; max-height: 50px;' src='https://cdn.nathcat.net/pfps/" + u.pfpPath + "'></div><h4 style='padding-left: 5px;'>" + u.username + "</h4></td><td><input type='radio' value='" + u.id + "' ></td></tr>";
                     }
 
                     get_users(group, (m) => {
                         m.forEach((u) => {
-                            if (u !== <?php echo $_SESSION["user"]["id"]; ?>) {
-                                $("#users").append(user_as_html(u));
-                            }
+                            $("#users").append(user_as_html(u));
                         });
                     }, (m) => console.log(m));
                 </script>
