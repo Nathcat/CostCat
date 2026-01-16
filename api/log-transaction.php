@@ -42,7 +42,7 @@ catch (Exception $e) {
 }
 
 if ($is_member) {
-    $stmt = $conn->prepare("INSERT INTO Transactions (`group`, payer, amount, payeeCount) VALUES (?, ?, ?, ?)");
+    $stmt = $conn->prepare("INSERT INTO Transactions (`group`, payer, amount, payeeCount, `timestamp`) VALUES (?, ?, ?, ?, unix_timestamp())");
     $payeeCount = count($request["payees"]);
     $stmt->bind_param("iiii", $request["group"], $_SESSION["user"]["id"], $request["amount"], $payeeCount);
     
