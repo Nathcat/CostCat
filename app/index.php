@@ -51,11 +51,11 @@
                     const group = get_params.get("group");
 
                     function debt_as_html(debt, debtor) {
-                        return "<tr><td class='row align-center'><div class='small-profile-picture'><img id='user-pfp-" + debtor + "' src='https://cdn.nathcat.net/pfps/default.png'></div><h4 style='padding-left: 10px' id='user-" + debtor + "'>User " + debtor + "</h4></td><td><p>£" + debt + "</p></td></tr>";
+                        return "<tr><td class='row align-center'><div style='max-width: 50px; max-height: 50px;' class='small-profile-picture'><img style='max-width: 50px; max-height: 50px;' id='user-pfp-" + debtor + "' src='https://cdn.nathcat.net/pfps/default.png'></div><h4 style='padding-left: 10px' id='user-" + debtor + "'>User " + debtor + "</h4></td><td><p>£" + debt + "</p></td></tr>";
                     }
 
                     function transaction_as_html(t) {
-                        return "<tr><td class='row align-center'><div class='small-profile-picture'><img id='transaction-user-pfp-" + t.payer + "' src='https://cdn.nathcat.net/pfps/default.png'></div><h4 style='padding-left: 10px' id='transaction-user-" + t.payer + "'></h4></td><td><p>" + t.amount + "</p></td><td><p>" + t.payeeCount + "</p></td><td><p>" + t.timestamp + "</p></td></tr>";
+                        return "<tr><td class='row align-center'><div style='max-width: 50px; max-height: 50px;' class='small-profile-picture'><img style='max-width: 50px; max-height: 50px;' id='transaction-user-pfp-" + t.payer + "' src='https://cdn.nathcat.net/pfps/default.png'></div><h4 style='padding-left: 10px' id='transaction-user-" + t.payer + "'></h4></td><td><p>" + t.amount + "</p></td><td><p>" + t.payeeCount + "</p></td><td><p>" + t.timestamp + "</p></td></tr>";
                     }
 
                     get_balance(group, (b) => {
