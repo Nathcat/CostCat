@@ -72,7 +72,6 @@
 
                             // Request the user data
                             get_user(debtor, (u) => {
-                                console.log(u);
                                 $("#user-" + u.id).text(u.username);
                                 $("#user-pfp-" + u.id).attr("src", "https://cdn.nathcat.net/pfps/" + u.pfpPath);
                             }, (m) => console.log(m));
@@ -83,7 +82,6 @@
                         T.forEach((t) => {
                             $("#transactions").append(transaction_as_html(t));
                             get_user(t.payer, (u) => {
-                                console.log(u);
                                 $("#transaction-user-" + u.id).text(u.username);
                                 $("#transaction-user-pfp-" + u.id).attr("src", "https://cdn.nathcat.net/pfps/" + u.pfpPath);
                             }, (m) => console.log(m));
