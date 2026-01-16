@@ -32,7 +32,7 @@ if ($conn->connect_error) {
 }
 
 try {
-    $is_member = is_member_of_group($conn, $conn, $_SESSION["user"]["id"]);
+    $is_member = is_member_of_group($conn, $request["group"], $_SESSION["user"]["id"]);
 }
 catch (Exception $e) {
     die(json_encode([
@@ -71,10 +71,10 @@ if ($is_member) {
     }
 }
 else {
-    echo json_encode([
+    die(json_encode([
         "status" => "fail",
         "message" => "You are not a member of this group."
-    ]);
+    ]));
 }
 
 
