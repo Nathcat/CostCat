@@ -62,7 +62,7 @@
                     function do_log() {
                         let payees = [];
                         $("input:radio:checked").each(function (index) {
-                            payees.push(parseInt($(this).attr("id")));
+                            payees.push(parseInt($(this).val()));
                         });
 
                         log_transaction(group, parseInt($("#amount").val()), payees, () => {
