@@ -13,6 +13,13 @@
     height: 100%;
 }
 
+#total-balance {
+    font-family: 'Courier New', Courier, monospace;
+    color: var(--tertiary-color);
+    text-align: center;
+    font-size: 5em;
+}
+
 th, td {
     border-bottom: 1px solid var(--tertiary-color);
     padding: 5px;

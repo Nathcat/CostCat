@@ -34,7 +34,7 @@
                         <p>
                             This is your total balance over the entire group, negative values indicate debt, positive indicate credit.
                         </p>
-                        <h2 id="total-balance" style="color: var(--quad-color);">£--.--</h2>
+                        <h2 id="total-balance">£--.--</h2>
                     </div>
                 </div>
 
