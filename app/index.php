@@ -43,7 +43,8 @@
                     <p>
                         Here you will find a list of all transactions in this group. Payer refers to who made the payment,
                         the amount is how much they spent, the number of payees tells you how many people received a share of the payment.
-                    </p>  
+                    </p> 
+                    <p><a href="<?php echo "/app/transaction/?group=" . $_GET["group"]; ?>">Log a new transaction</a></p>
                     <table id="transactions" class="content-card">
                         <tr><th><h3>Payer</h3></th><th><h3>Amount</h3></th><th><h3># of payees</h3></th><th><h3>Time</h3></th></tr>
                     </table>

@@ -65,3 +65,16 @@ function get_user(id, success, fail) {
         });
     }
 }
+
+function get_users(group, success, fail) {
+    fetch("https://data.nathcat.net/data/get-group-members.php", {
+        method: "POST",
+        credentials: "include",
+        body: JSON.stringify({
+            "group": group
+        })
+    }).then((r) => r.json()).then((r) => {
+        if (r.status === "success") success([r.owner].concat(r.members));
+        else fail(r.message);
+    });
+}
