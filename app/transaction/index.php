@@ -43,8 +43,7 @@
                     const get_params = new URLSearchParams(window.location.search);
                     const group = get_params.get("group");
 
-                    if (group === undefined) {
-                        alert("You must specify a group.");
+                    if (group === null) {
                         window.location = "/";
                     }
                     

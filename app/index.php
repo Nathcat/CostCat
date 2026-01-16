@@ -55,7 +55,7 @@
                     const get_params = new URLSearchParams(window.location.search);
                     const group = get_params.get("group");
 
-                    if (group === undefined) window.location = "/";
+                    if (group === null) window.location = "/";
 
                     function debt_as_html(debt, debtor) {
                         return "<tr><td class='row align-center'><div style='max-width: 50px; max-height: 50px;' class='small-profile-picture'><img style='max-width: 50px; max-height: 50px;' id='user-pfp-" + debtor + "' src='https://cdn.nathcat.net/pfps/default.png'></div><h4 style='padding-left: 10px' id='user-" + debtor + "'>User " + debtor + "</h4></td><td><p>£" + debt + "</p></td></tr>";
