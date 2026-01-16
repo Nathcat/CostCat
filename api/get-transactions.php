@@ -42,7 +42,7 @@ catch (Exception $e) {
 
 if ($is_member) {
     try {
-        $stmt = $conn->prepare("SELECT * FROM Transactions WHERE `group` = ?");
+        $stmt = $conn->prepare("SELECT * FROM Transactions WHERE `group` = ? ORDER BY `timestamp` DESC");
         $stmt->bind_param("i", $_GET["group"]);
         $stmt->execute();
         $set = $stmt->get_result();
