@@ -39,7 +39,11 @@
                 </div>
 
                 <div class="column" style="grid-area: transactions; box-sizing: border-box; width: 100%; height: 100%; margin: 0; padding: 10px;">
-                    <h1>Transactions</h1>    
+                    <h1>Transactions</h1>  
+                    <p>
+                        Here you will find a list of all transactions in this group. Payer refers to who made the payment,
+                        the amount is how much they spent, the number of payees tells you how many people received a share of the payment.
+                    </p>  
                     <table id="transactions" class="content-card">
                         <tr><th><h3>Payer</h3></th><th><h3>Amount</h3></th><th><h3># of payees</h3></th><th><h3>Time</h3></th></tr>
                     </table>
