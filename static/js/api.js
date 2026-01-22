@@ -18,7 +18,7 @@ function log_transaction(group, amount, payees, success, fail) {
         credentials: "include",
         body: JSON.stringify({
             "group": group,
-            "amount": amount * 100,
+            "amount": amount * 100.0,
             "payees": payees
         })
     }).then((r) => r.json()).then((r) => {
