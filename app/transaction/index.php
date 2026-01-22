@@ -23,7 +23,7 @@
                         Please first enter the amount which you spent in this transaction.
                     </p>
 
-                    <input id="amount" type="number" placeholder="Amount">
+                    <input id="amount" type="text" placeholder="Amount">
                 </div>
 
                 <div class="content-card">
@@ -64,7 +64,7 @@
                             payees.push(parseInt($(this).val()));
                         });
 
-                        log_transaction(group, parseInt($("#amount").val()), payees, () => {
+                        log_transaction(group, parseFloat($("#amount").val()), payees, () => {
                             alert("Transaction was logged.");
                             window.location = "/app/?group=" + group;
                         }, alert);
