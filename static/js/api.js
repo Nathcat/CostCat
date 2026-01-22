@@ -18,7 +18,7 @@ function log_transaction(group, amount, payees, success, fail) {
         credentials: "include",
         body: JSON.stringify({
             "group": group,
-            "amount": amount,
+            "amount": amount * 100,
             "payees": payees
         })
     }).then((r) => r.json()).then((r) => {
@@ -42,7 +42,7 @@ function get_transactions(group, success, fail) {
         method: "GET",
         credentials: "include"
     }).then((r) => r.json()).then((r) => {
-        if (r.status === "success") success(r.transactions);
+        if (r.status === "success") success(r.transactions.map((t) => {t.amount /= 100.0; return t;}));
         else fail(r.message);
     });
 }
